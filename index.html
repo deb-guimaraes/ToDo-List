@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/src/styles.css" rel="stylesheet">
+
+
+    <title>Lista de Tarefas</title>
+  </head>
+  <body>
+    <!-- titulo !-->
+    <h1
+      class=""
+    >
+      Lista de Tarefas
+    </h1>
+
+    <!-- container !-->
+    <div 
+      id="container"
+      class=""
+    >
+
+      <!-- btn open form !-->
+      <button
+        id="open-task-form"
+        >
+        +
+      </button>
+
+      <!-- form add task !-->
+      <form 
+        id="task-form"
+        hidden
+      >
+        <button
+          id="close-task-form"
+        >
+          X
+        </button>
+        <label>Tarefa</label>
+        <input 
+          type="text"  
+          id="input-task"  
+          placeholder="Adicione uma nova tarefa"
+          class="m-3 p-2"
+        >
+        <button 
+          id="btn-addOrUpdate-task"
+          class=""
+        >
+          Adicionar
+        </button>
+      </form>
+
+      <!-- dialog confirm close !-->
+      <dialog
+        id="dialog-confirm-close"
+      >
+        <form
+          method="dialog"
+          id="dialog-close"
+        >
+
+          <p>Descartar as mudanças que não foram salvas?</p>
+
+          <div
+            id="btns-dialog-container"
+          >
+            <button
+            id="cancel-btn"
+            >
+              cancelar
+            </button>
+
+            <button
+            id="discard-btn"
+            >
+              descartar
+            </button>
+          </div>
+                                                                    
+        </form>
+
+      </dialog>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
