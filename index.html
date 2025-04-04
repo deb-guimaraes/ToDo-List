@@ -4,87 +4,108 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="/src/styles.css" rel="stylesheet">
+
+    <link href="/src/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
     <title>Lista de Tarefas</title>
   </head>
   <body>
-    <!-- titulo !-->
-    <h1
-      class=""
+    <div
+      id="all"
+      class="relative flex h-screen w-full items-center flex-col font-display bg-gray-100"
     >
-      Lista de Tarefas
-    </h1>
-
-    <!-- container !-->
-    <div 
-      id="container"
-      class=""
-    >
-
-      <!-- btn open form !-->
-      <button
-        id="open-task-form"
-        >
-        +
-      </button>
-
-      <!-- form add task !-->
-      <form 
-        id="task-form"
-        hidden
+      <!-- titulo !-->
+      <h1
+        class="absolute top-20 font-semibold text-center text-4xl p-3 m-4"
       >
-        <button
-          id="close-task-form"
-        >
-          X
-        </button>
-        <label>Tarefa</label>
-        <input 
-          type="text"  
-          id="input-task"  
-          placeholder="Adicione uma nova tarefa"
-          class="m-3 p-2"
-        >
-        <button 
-          id="btn-addOrUpdate-task"
-          class=""
-        >
-          Adicionar
-        </button>
-      </form>
+        ToDo List
+      </h1>
 
-      <!-- dialog confirm close !-->
-      <dialog
-        id="dialog-confirm-close"
+      
+      <div
+        class="absolute max-w-[400px] top-60 flex flex-col"
       >
-        <form
-          method="dialog"
-          id="dialog-close"
+        <form 
+          id="task-form"
         >
-
-          <p>Descartar as mudanças que não foram salvas?</p>
-
-          <div
-            id="btns-dialog-container"
+          
+          <input 
+            type="text"  
+            id="input-task"  
+            placeholder="Adicione uma nova tarefa"
+            class="w-full h-[40px] text-xl p-4 m-2 self-center border-2 rounded-lg border-gray-400 hover:border-gray-500 active:border-amber-400 focus:outline-none cursor-pointer"
           >
-            <button
-            id="cancel-btn"
-            >
-              cancelar
-            </button>
-
-            <button
-            id="discard-btn"
-            >
-              descartar
-            </button>
-          </div>
-                                                                    
+          <button 
+            type="button"
+            id="btn-addOrUpdate-task"
+            class="bg-amber-400 w-full h-12 p-2 m-2 self-center cursor-pointer rounded-xl active:bg-amber-500"
+          >
+          Adicionar
+          <i class="fa-solid fa-check"></i>
+          </button>
         </form>
+      </div>
 
-      </dialog>
+        <!-- dialog confirm close !-->
+        <dialog
+          id="dialog-confirm-close"
+        >
+          <form
+            method="dialog"
+            id="dialog-close"
+          >
+
+            <p>Descartar as mudanças que não foram salvas?</p>
+            <div
+              id="btns-dialog-container"
+            >
+              <button
+              id="cancel-btn"
+              >
+                cancelar
+              </button>
+
+              <button
+              id="discard-btn"
+              >
+                descartar
+              </button>
+            </div>
+                                                                      
+          </form>
+        </dialog>
+
+
+        <div
+          id="tasks-cotainer"
+          class="mt-95 flex-1"
+        >
+          <div
+            id="task"
+            class="flex gap-5 m-3 max-w-[400px] h-20 p-4 bg-white rounded-2xl whitespace-normal"
+          >
+          <button
+            class="cursor-pointer text-xl hover:text-gray-500 active:text-amber-400"
+          >
+            <i class="fa-regular fa-square"></i>
+            <i class="fa-solid fa-square-check"></i>
+          </button>
+          <p
+            class="text-xl self-center"
+          >
+            task task task task task task task task task task task 
+          </p>
+          <button
+            class="cursor-pointer ml-auto pl-6 text-xl hover:text-gray-500 active:text-amber-400"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+
+          </div>
+
+        </div>
     </div>
 
     <script type="module" src="/src/main.js"></script>
