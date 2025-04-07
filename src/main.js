@@ -43,25 +43,31 @@ const updateTaskContainer = () => {
         btnCompTask.classList.add("cursor-pointer", "text-xl", "hover:text-gray-500","active:text-amber-400");
         btnCompTask.innerHTML = `<i class="fa-regular fa-square"></i>`;
 
+        //troca o simbolo quando clicado
+        btnCompTask.addEventListener("click", () => {
+            btnCompTask.innerHTML = `<i class="fa-solid fa-square-check"></i>`;    
+        });
+
         //criando botão de remover a task
         const btnDiscard = document.createElement("button");
         btnDiscard.id = "btn-discard";
         btnDiscard.classList.add("cursor-pointer","ml-auto", "text-xl","hover:text-gray-500","active:text-amber-400");
         btnDiscard.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
 
+        //remove a task
+        btnDiscard.addEventListener( "click", () => {
+            taskData.splice(taskData[task],1);
+            updateTaskContainer();
+        });
+
         //criando o p da task
         const taskP = document.createElement("p");
         taskP.textContent = task;
-
 
         taskDiv.appendChild(btnCompTask);
         taskDiv.appendChild(taskP);
         taskDiv.appendChild(btnDiscard);
         tasksContainer.appendChild(taskDiv);
-
-        btnCompTask.addEventListener("click", () => {
-            btnCompTask.innerHTML = `<i class="fa-solid fa-square-check"></i>`;    
-        });
     }); 
     
 };
