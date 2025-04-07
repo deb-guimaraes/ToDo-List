@@ -20,7 +20,7 @@ btnAddTask.addEventListener( "click", (e) => {
     };
 
     let task = removeSpecialChars(inputTask.value);
-    taskData.push(task);
+    taskData.push({task, completed: false });
 
     updateTaskContainer();
 });
@@ -43,9 +43,12 @@ const updateTaskContainer = () => {
         btnCompTask.classList.add("cursor-pointer", "text-xl", "hover:text-gray-500","active:text-amber-400");
         btnCompTask.innerHTML = `<i class="fa-regular fa-square"></i>`;
 
-        //troca o simbolo quando clicado
-        btnCompTask.addEventListener("click", () => {
-            btnCompTask.innerHTML = `<i class="fa-solid fa-square-check"></i>`;    
+
+        btnCompTask.addEventListener( "click", () => {
+            task.completed = !task.completed;
+            btnCompTask.innerHTML = task.completed
+            ? `<i class="fa-regular fa-square"></i>`
+            : `<i class="fa-solid fa-square-check"></i>`;
         });
 
         //criando botão de remover a task
@@ -62,7 +65,7 @@ const updateTaskContainer = () => {
 
         //criando o p da task
         const taskP = document.createElement("p");
-        taskP.textContent = task;
+        taskP.textContent = task.task;
 
         taskDiv.appendChild(btnCompTask);
         taskDiv.appendChild(taskP);
